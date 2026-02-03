@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction & Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-brain"></i> Reaction & Memory Game</h1>
+            <p class="subtitle">Test your reflexes and memory!</p>
+        </header>
+
+        <main>
+            <div class="game-selector" id="game-selector">
+                <h2>Select Game Mode</h2>
+                <div class="mode-buttons">
+                    <button class="mode-btn" id="option1">
+                        <i class="fas fa-user-clock"></i>
+                        <h3>Single Player</h3>
+                        <p>Test your reaction speed</p>
+                    </button>
+                    <button class="mode-btn" id="option2">
+                        <i class="fas fa-users"></i>
+                        <h3>Multiplayer (Offline)</h3>
+                        <p>Two players compete</p>
+                    </button>
+                    <button class="mode-btn" id="option3">
+                        <i class="fas fa-memory"></i>
+                        <h3>Remembrance</h3>
+                        <p>Test your memory skills</p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-screen hidden" id="single-player">
+                <h2><i class="fas fa-user-clock"></i> Single Player Reaction Test</h2>
+                <div class="game-info">
+                    <p>Wait for the countdown, then click the box as fast as you can when it lights up!</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-label">Best Time:</span>
+                            <span class="stat-value" id="best-time">--</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Last Time:</span>
+                            <span class="stat-value" id="last-time">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="countdown" id="countdown">Get Ready...</div>
+                
+                <div class="reaction-area">
+                    <div class="reaction-box" id="reaction-box">
+                        <div class="reaction-text">Wait for it...</div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn" id="start-single">Start Game</button>
+                    <button class="btn btn-secondary" id="back-from-single">Back to Menu</button>
+                </div>
+            </div>
+
+            <div class="game-screen hidden" id="multi-player">
+                <h2><i class="fas fa-users"></i> Two Player Reaction Battle</h2>
+                <div class="game-info">
+                    <p>Each player gets their own box. The first to click when their box lights up wins!</p>
+                </div>
+                
+                <div class="countdown" id="multi-countdown">Get Ready...</div>
+                
+                <div class="multiplayer-area">
+                    <div class="player-box" id="player1-box">
+                        <div class="player-label">Player 1</div>
+                        <div class="player-score" id="player1-score">0</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="player-box" id="player2-box">
+                        <div class="player-label">Player 2</div>
+                        <div class="player-score" id="player2-score">0</div>
+                    </div>
+                </div>
+                
+                <div class="winner-announcement hidden" id="winner-announcement">
+                    <h3 id="winner-text"></h3>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn" id="start-multi">Start Round</button>
+                    <button class="btn btn-secondary" id="reset-multi">Reset Scores</button>
+                    <button class="btn btn-secondary" id="back-from-multi">Back to Menu</button>
+                </div>
+            </div>
+
+            <div class="game-screen hidden" id="memory-game">
+                <h2><i class="fas fa-memory"></i> Memory Challenge</h2>
+                <div class="game-info">
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-label">Level:</span>
+                            <span class="stat-value" id="current-level">1</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Score:</span>
+                            <span class="stat-value" id="memory-score">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Remaining Replays:</span>
+                            <span class="stat-value" id="replay-count">2</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Best Level:</span>
+                            <span class="stat-value" id="best-level">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                <p id="memory-instructions">Memorize the pattern of lit boxes, then click them in the same order!</p>
+                </div>
+                
+                <div class="memory-board" id="memory-board">
+                    <!-- Memory boxes will be generated here -->
+                </div>
+                
+                <div class="game-status" id="memory-status">Click "Start Level" to begin!</div>
+                
+                <div class="controls">
+                    <button class="btn" id="start-memory">Start Level</button>
+                    <button class="btn" id="replay-memory">Replay Pattern (2 left)</button>
+                    <button class="btn btn-secondary" id="back-from-memory">Back to Menu</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Reaction & Memory Game | Created with HTML, CSS & JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
